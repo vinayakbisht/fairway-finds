@@ -32,10 +32,12 @@ export const Route = createRootRoute({
       { title: "Destination Fareways LLC — Premium Golf Travel Essentials" },
       { name: "description", content: "Premium travel essentials crafted for golfers who play beyond boundaries." },
       { name: "author", content: "Destination Fareways LLC" },
-      { property: "og:title", content: "Destination Fareways LLC" },
+      { property: "og:title", content: "Destination Fareways LLC — Premium Golf Travel Essentials" },
       { property: "og:description", content: "Premium travel essentials crafted for golfers who play beyond boundaries." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Destination Fareways LLC — Premium Golf Travel Essentials" },
+      { name: "twitter:description", content: "Premium travel essentials crafted for golfers who play beyond boundaries." },
     ],
     links: [
       {
