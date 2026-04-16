@@ -96,9 +96,9 @@
   --sidebar-ring: oklch(0.35 0.08 150);
 }
 
-@layer base {
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
+@layer base {
   * {
     border-color: var(--color-border);
   }
