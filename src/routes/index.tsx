@@ -1,26 +1,42 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { Navbar } from "@/components/Navbar";
+import { HeroSection } from "@/components/HeroSection";
+import { ProductsSection } from "@/components/ProductsSection";
+import { ProductDetail } from "@/components/ProductDetail";
+import { AboutSection } from "@/components/AboutSection";
+import { Footer } from "@/components/Footer";
+import { Toaster } from "sonner";
+import type { Product } from "@/lib/products";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "Destination Fareways LLC — Premium Golf Travel Essentials" },
+      { name: "description", content: "Premium travel essentials crafted for golfers who play beyond boundaries. Shop luxury golf bags, shoes, rangefinders and more." },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+  return (
+    <>
+      <Navbar />
+      <main>
+        <HeroSection />
+        <ProductsSection onSelectProduct={setSelectedProduct} />
+        <AboutSection />
+      </main>
+      <Footer />
+      <ProductDetail
+        product={selectedProduct}
+        open={!!selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+      />
+      <Toaster position="bottom-right" richColors />
+    </>
+  );
 }
